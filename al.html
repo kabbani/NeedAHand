@@ -1,0 +1,144 @@
+﻿<style>
+	.input-container {
+		padding: 0 0 10px 0;
+	}
+	.input-container label {
+		display: block;
+		position: relative !important;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		font-size: 17px !important;
+	}
+	.input-container u {
+		top: 0;
+		left: 0;
+		color: #757575;
+		font-weight: 300;
+		line-height: 20px;
+	}
+	.input-container u {
+		margin-top: 7px;
+	    font-size: 17px;
+	}
+	.input-container u , .input-container .button-container {
+		display: none;
+	}
+	
+/* tap */
+#points {
+	position: absolute;
+	margin: 0;
+	top: 36px;
+	right: -21px;
+	transform: rotateZ(-90deg);
+}
+
+.points {
+	width: 135px !important;
+}	
+.points span {
+  position: relative;
+  z-index: 1;
+  font-size: 17px;
+  color: #ddd;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.points:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #ed2553;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.points:hover, .points:active, .points:focus {
+  border-color: #ed2553;
+}
+.points:hover span, .points:active span, .points:focus span {
+  color: #ed2553;
+}
+.points:active span, .points:focus span {
+  color: #ffffff;
+}
+.points:active:before, .points:focus:before {
+  opacity: 1;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+.points:active:before, .points:focus:before {
+  display: block;
+}
+</style>
+			<h1 class="title" id="ba">MY ACTIVITY</h1>
+			<h1 class="title">NEW NOTIFICATIONS</h1>
+			<div class="input-container">
+				<label><B>ID : 103 -</B> any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^	</label>
+				<div class="button-container" id="NB">
+					<button><span>will do</span></button>
+				</div>
+				<u>POST AT : 16:39 14/03/2016 <br> 3 people will do</u>
+				<div class="bar"></div>
+				</a>
+			</div>
+			<div class="input-container">
+				<label><B>ID : 102 -</B> any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	</label>
+				<div class="button-container" id="NB">
+					<button><span>will do</span></button>
+				</div>
+				<u>POST AT : 16:39 14/03/2016 <br> 3 people will do</u>
+				<div class="bar"></div>
+				</a>
+			</div>
+			<div class="input-container">
+				<label><B>ID : 101 -</B> any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	any text -  ^_^any text -  ^_^	</label>
+				<div class="button-container" id="NB">
+					<button><span>will do</span></button>
+				</div>
+				<u>POST AT : 16:39 14/03/2016 <br> 3 people will do</u>
+				<div class="bar"></div>
+				</a>
+			</div>		
+	<div class="button-container" id="points">
+		<button class="points"><span>MY ACTIVITY</span></button>
+	</div>
+	<script>
+		$(document).ready(function(){
+			$(".input-container").on("click", function() {
+				if( $(this).attr("id") !== "sel" ){
+					$(".input-container").attr({"id":""});
+					$("label").css({"white-space":"nowrap"});
+					$(this).attr({"id":"sel"});
+					$(".input-container .button-container , .input-container u").stop().slideUp(700);
+					$(this).children().stop().show(700);
+					$(this).children(".button-container").attr({"display":"inline-block"});
+					$(this).children(".bar").attr({"id":"seen"});
+					$(this).children("label").css({"white-space":"inherit"});
+					$('body,html').animate({"scrollTop":$(this).offset().top},'swing');
+				}else{
+					$(".input-container").attr({"id":""});
+					$(this).children(".button-container").stop().slideUp(700);
+					$(this).children("u").stop().slideUp(700);
+					$(this).children("label").css({"white-space":"nowrap"});
+				}
+			});
+			$("#points").on("click", function() {
+				$(".card *").not(".title").stop().hide(700, function() {
+					$(this).remove();
+				});
+				$(".title , .title").stop().slideUp(700);
+				$("#ba").slideDown(700, function() {
+					$("#t4lo").load("./ma.html");
+				});
+			});
+		});
+		
+	</script>
