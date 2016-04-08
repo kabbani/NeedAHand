@@ -1,0 +1,468 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+	<title>| notifications |</title>
+	<!-- link rel="shortcut icon" href="./i.jpg" / -->
+	<script src="./SC.js" type="text/javascript"></script>
+<style>
+	* {text-align: center;font-weight: bold;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;cursor:context-menu;}
+	body {background: linear-gradient(50deg, #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876 , #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876);background: -webkit-linear-gradient(50deg, #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876 , #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876);background: -o-linear-gradient(50deg, #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876 , #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876);background: -moz-linear-gradient(50deg, #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876 , #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876);background: linear-gradient(50deg, #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876 , #e0c5ac, #e9d606, #8f73b8, #a5902d, #be9876);background-size: 765% 765%;-webkit-animation: aobg 33s ease infinite;-moz-animation: aobg 33s ease infinite;-o-animation: aobg 33s ease infinite;animation: aobg 33s ease infinite;font-family: sans-serif;overflow-x:hidden;}
+	
+@-webkit-keyframes aobg {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 32%}
+}
+@-moz-keyframes aobg {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 32%}
+}
+@-o-keyframes aobg {
+    0%{background-position:0% 32%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 32%}
+}
+@keyframes aobg { 
+    0%{background-position:0% 32%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 32%}
+}
+.container {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto 100px;
+}
+.container.active .card:first-child {
+  background: #f2f2f2;
+  margin: 0 15px;
+}
+.container.active .card:nth-child(2) {
+  background: #fafafa;
+  margin: 0 10px;
+}
+.container.active .card.alt {
+  top: 20px;
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  padding: 60px 0 40px;
+  overflow: hidden;
+}
+.container.active .card.alt .toggle {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  box-shadow: none;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+}
+.container.active .card.alt .toggle:before {
+  content: '';
+}
+.container.active .card.alt .title,
+.container.active .card.alt .input-container,
+.container.active .card.alt .button-container {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.container.active .card.alt .title {
+  -webkit-transition-delay: .3s;
+          transition-delay: .3s;
+}
+.container.active .card.alt .input-container {
+  -webkit-transition-delay: .4s;
+          transition-delay: .4s;
+}
+.container.active .card.alt .input-container:nth-child(2) {
+  -webkit-transition-delay: .5s;
+          transition-delay: .5s;
+}
+.container.active .card.alt .input-container:nth-child(3) {
+  -webkit-transition-delay: .6s;
+          transition-delay: .6s;
+}
+.container.active .card.alt .button-container {
+  -webkit-transition-delay: .7s;
+          transition-delay: .7s;
+}
+
+/* Card */
+.card {
+  position: relative;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 60px 0 40px 0;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Title */
+  /* Inputs */
+  /* Button */
+  /* Footer */
+  /* Alt Card */
+}
+.card:first-child {
+  background: #fafafa;
+  height: 10px;
+  border-radius: 5px 5px 0 0;
+  margin: 23px 13px 0 13px;
+  padding: 0;
+}
+.card .title {
+  position: relative;
+  z-index: 1;
+  border-left: 5px solid #ed2553;
+  margin: 0 0 35px;
+  padding: 10px 0 10px 50px;
+  color: #ed2553;
+  font-size: 32px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align:left;
+}
+.card .input-container {
+  position: relative;
+  margin: 0 60px 50px;
+}
+.card .input-container input {
+  outline: none;
+  z-index: 1;
+  position: relative;
+  background: none;
+  width: 100%;
+  height: 60px;
+  border: 0;
+  color: #212121;
+  font-size: 24px;
+  font-weight: 400;
+}
+.card .input-container input:focus ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container input:focus ~ .bar:before , .card .input-container input:focus ~ .bar:after , .card .input-container input:valid ~ .bar:before , .card .input-container input:valid ~ .bar:after , #seen:after , #seen:before {
+  width: 50%;
+}
+.card .input-container input:valid ~ label {
+  color: #9d9d9d;
+  -webkit-transform: translate(-12%, -50%) scale(0.75);
+          transform: translate(-12%, -50%) scale(0.75);
+}
+.card .input-container label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #757575;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 60px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+.card .input-container .bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #757575;
+  width: 100%;
+  height: 1px;
+}
+.card .input-container .bar:before, .card .input-container .bar:after {
+  content: '';
+  position: absolute;
+  background: #ed2553;
+  width: 0;
+  height: 2px;
+  -webkit-transition: .2s ease;
+  transition: .2s ease;
+}
+.card .input-container .bar:before {
+  left: 50%;
+}
+.card .input-container .bar:after {
+  right: 50%;
+}
+.card .button-container {
+  margin: 0 60px;
+  text-align: center;
+}
+.button-container button {
+  outline: 0;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  background: 0;
+  width: 200px;
+  border: 2px solid #e3e3e3;
+  padding: 17px 0;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  overflow: hidden;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button span {
+  position: relative;
+  z-index: 1;
+  color: #ddd;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  background: #ed2553;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+.card .button-container button:hover, .card .button-container button:active, .card .button-container button:focus {
+  border-color: #ed2553;
+}
+.card .button-container button:hover span, .card .button-container button:active span, .card .button-container button:focus span {
+  color: #ed2553;
+}
+.card .button-container button:active span, .card .button-container button:focus span {
+  color: #ffffff;
+}
+.card .button-container button:active:before, .card .button-container button:focus:before {
+  opacity: 1;
+  -webkit-transform: scale(10);
+  transform: scale(10);
+}
+.card .footer {
+  margin: 40px 0 0;
+  padding: 31px 0 10px 0;
+  color: #d3d3d3;
+  font-size: 24px;
+  font-weight: 300;
+  text-align: center;
+  border-top: 3px solid #d3d3d3;
+}
+.card .footer a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+.card .footer a:hover {
+  color: #ed2553;
+}
+.card.alt {
+  position: absolute;
+  top: 40px;
+  right: -70px;
+  z-index: 10;
+  width: 140px;
+  height: 140px;
+  background: none;
+  border-radius: 100%;
+  box-shadow: none;
+  padding: 0;
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+  /* Toggle */
+  /* Title */
+  /* Input */
+  /* Button */
+}
+.card.alt .toggle {
+  position: relative;
+  background: #ed2553;
+  width: 140px;
+  height: 140px;
+  border-radius: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  color: #ffffff;
+  font-size: 58px;
+  line-height: 140px;
+  text-align: center;
+  cursor: pointer;
+}
+.card.alt .toggle:before {
+  content: '\f040';
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+.card.alt .title,
+.card.alt .input-container,
+.card.alt .button-container {
+  left: 100px;
+  opacity: 0;
+  visibility: hidden;
+}
+.card.alt .title {
+  position: relative;
+  border-color: #ffffff;
+  color: #ffffff;
+}
+.card.alt .title .close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 60px;
+  display: inline;
+  color: #ffffff;
+  font-size: 58px;
+  font-weight: 400;
+}
+
+.card.alt .input-container input {
+  color: #ffffff;
+}
+
+.card.alt .input-container input:focus ~ label {
+  color: #ffffff;
+}
+
+.card.alt .input-container input:focus ~ .bar:before, .card.alt .input-container input:focus ~ .bar:after {
+  background: #ffffff;
+}
+.card.alt .input-container input:valid ~ label {
+  color: #ffffff;
+}
+.card.alt .input-container label {
+  color: rgba(255, 255, 255, 0.8);
+}
+.card.alt .input-container .bar {
+  background: rgba(255, 255, 255, 0.8);
+}
+.card.alt .button-container button {
+  width: 100%;
+  background: #ffffff;
+  border-color: #ffffff;
+}
+.card.alt .button-container button span {
+  color: #ed2553;
+}
+.card.alt .button-container button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.card.alt .button-container button:active:before, .card.alt .button-container button:focus:before {
+  display: none;
+}
+
+#ba {
+display: none;
+cursor: pointer;
+}
+
+/* Keyframes */
+@-webkit-keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+@keyframes buttonFadeInUp {
+  0% {
+    bottom: 30px;
+    opacity: 0;
+  }
+}
+
+#ot4lo , .button-bar , .toggle{ 
+	display: none;
+}
+</style>
+</head>
+<body>
+	<div id="warb">
+		<div class="card"></div>
+		<div class="card">
+			<h1 class="title">Login</h1>
+			<h1 class="title" id="ba">Back</h1>
+			<div id="t4lo">
+				<div class="input-container" id="us">
+					<input type="text" id="Username" required="required">
+					<label for="Username">Username</label>
+					<div class="bar"></div>
+				</div>
+				<div class="input-container" id="ps">
+					<input type="password" id="Password" required="required">
+					<label for="Password">Password</label>
+					<div class="bar"></div>
+				</div>
+				<div class="button-container" id="go">
+					<button><span>Go</span></button>
+				</div>
+				<div class="footer"><a id="fpse">Forgot your password?</a></div>
+				<div class="input-container" id="fps" style="display: none;">
+					<input type="text" id="Email" required="required">
+					<label for="Email">Email</label>
+					<div class="bar"></div>
+				</div>
+				<div class="button-container" id="fps" style="display: none;">
+					<button><span>Send</span></button>
+				</div>
+			</div>
+			<div id="ot4lo">
+			</div>
+		</div>
+	</div>
+	<div class="toggle">
+		<input type="checkbox" class="checker option-1"><span></span>
+		<div class="button-bar">
+			<label id="MA">My Activity</label>
+			<label id="NN">New Notifications</label>
+			<label id="LO">Login out</label>
+		</div>
+	</div>
+	<script type="text/javascript" id="sj0">
+		$(document).ready(function(){
+			$("#fpse").on("click", function() {
+				$("#us , #ps , #go , .title").stop().slideUp(700);
+				$("#ba , #fps").stop().slideDown(700);
+				$(".footer").css("borderTop","3px solid #ed2553");
+				$(this).css("color","#ed2553");
+			});
+			$("#ba").on("click", function() {if($("#ba").html()=="Back"){
+				$("#us , #ps , .button-container , .title").stop().slideDown(700);
+				$("#ba , #fps").stop().slideUp(700);
+				$(".footer").css("borderTop","");
+				$("#fpse").css("color","");
+			}});
+			$("#go").on("click", function() {
+				if($("#Username").val()=="1" && $("#Password").val()=="1"){
+					$("#t4lo *").stop().slideUp(700, function() {
+						$(this).remove();
+						$("#t4lo").load("./al.html");
+						$(".title").stop().slideUp(700, function(){
+							$(this).html("MY ACTIVITY");
+						});
+						$("#ba").html("NEW NOTIFICATIONS").stop().slideDown(700);
+					});
+				}
+			});
+		});
+	</script>
+</body>
+</html>	
